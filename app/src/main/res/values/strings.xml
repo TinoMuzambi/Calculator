@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="action_settings">Settings</string>
+    <string name="Dark">Dark Mode</string>
+    <string name="MemoryClear">MC</string>
+    <string name="MemoryPlus">M+</string>
+    <string name="MemoryMinusButton">M-</string>
+    <string name="MemoryRecallButton">MR</string>
+    <string name="ClearButton">C</string>
+    <string name="DivideButton">÷</string>
+    <string name="MultiplyButton">×</string>
+    <string name="EraseButon">⌫</string>
+    <string name="SevenButton">7</string>
+    <string name="EightButton">8</string>
+    <string name="NineButton">9</string>
+    <string name="MinusButton">-</string>
+    <string name="Eight">8</string>
+    <string name="FourButton">4</string>
+    <string name="SixButton">6</string>
+    <string name="FiveButton">5</string>
+    <string name="PlusButton">+</string>
+    <string name="OneButton">1</string>
+    <string name="TwoButton">2</string>
+    <string name="ThreeButton">3</string>
+    <string name="PercentButton">%</string>
+    <string name="ZeroButton">0</string>
+    <string name="DecimalButton">,</string>
+    <string name="EqualsButton">=</string>
+    <string name="DecButton">.</string>
+</resources>
