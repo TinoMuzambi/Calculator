@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log.d
 import android.widget.Button
-import com.test.calculator.R.id.action_settings
-
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -81,17 +79,14 @@ class MainActivity : AppCompatActivity() {
         fun operationClick(button: Button) {
             try {
                 operation = button.text
-                var teext = outputTextView.text.toString()
-                if (operation.equals(plusButton.text))
-                    num1 = teext.toDouble()
-                else if (operation.equals(minusButton.text))
-                    num1 = teext.toDouble()
-                else if (operation.equals(divideButton.text))
-                    num1 = teext.toDouble()
-                else if (operation.equals(multiplyButton.text))
-                    num1 = teext.toDouble()
-                else if (operation.equals(percentButton.text))
-                    ans = teext.toDouble() / 100
+                val teext = outputTextView.text.toString()
+                when (operation) {
+                    plusButton.text -> num1 = teext.toDouble()
+                    minusButton.text -> num1 = teext.toDouble()
+                    divideButton.text -> num1 = teext.toDouble()
+                    multiplyButton.text -> num1 = teext.toDouble()
+                    percentButton.text -> ans = teext.toDouble() / 100
+                }
                 numButtonClick(button)
             }
             catch (e: Exception) {
@@ -125,32 +120,32 @@ class MainActivity : AppCompatActivity() {
 
         equalsButton.setOnClickListener {
             try {
-                if (operation.equals(plusButton.text)) {
-                    var num2 = ""
-                    var textToCopy = outputTextView.text.toString()
-                    var pos = textToCopy.indexOf("+")
-                    num2 = textToCopy.substring(pos + 1)
-                    ans = num1 + num2.toDouble()
-                } else if (operation.equals(minusButton.text)) {
-                    var num2 = ""
-                    var textToCopy = outputTextView.text.toString()
-                    var pos = textToCopy.indexOf("-")
-                    num2 = textToCopy.substring(pos + 1)
-                    ans = num1 - num2.toDouble()
-                } else if (operation.equals(divideButton.text)) {
-                    var num2 = ""
-                    var textToCopy = outputTextView.text.toString()
-                    var pos = textToCopy.indexOf(divideButton.text.toString())
-                    num2 = textToCopy.substring(pos + 1)
-                    ans = num1 / num2.toDouble()
-                } else if (operation.equals(multiplyButton.text)) {
-                    var num2 = ""
-                    var textToCopy = outputTextView.text.toString()
-                    var pos = textToCopy.indexOf(multiplyButton.text.toString())
-                    num2 = textToCopy.substring(pos + 1)
-                    ans = num1 * num2.toDouble()
-                } else
-                    null
+                when (operation) {
+                    plusButton.text -> {
+                        val textToCopy = outputTextView.text.toString()
+                        val pos = textToCopy.indexOf("+")
+                        val num2 = textToCopy.substring(pos + 1)
+                        ans = num1 + num2.toDouble()
+                    }
+                    minusButton.text -> {
+                        val textToCopy = outputTextView.text.toString()
+                        val pos = textToCopy.indexOf("-")
+                        val num2 = textToCopy.substring(pos + 1)
+                        ans = num1 - num2.toDouble()
+                    }
+                    divideButton.text -> {
+                        val textToCopy = outputTextView.text.toString()
+                        val pos = textToCopy.indexOf(divideButton.text.toString())
+                        val num2 = textToCopy.substring(pos + 1)
+                        ans = num1 / num2.toDouble()
+                    }
+                    multiplyButton.text -> {
+                        val textToCopy = outputTextView.text.toString()
+                        val pos = textToCopy.indexOf(multiplyButton.text.toString())
+                        val num2 = textToCopy.substring(pos + 1)
+                        ans = num1 * num2.toDouble()
+                    }
+                }
                 answerTextView.text = ans.toString()
             }
             catch (e: Exception) {
